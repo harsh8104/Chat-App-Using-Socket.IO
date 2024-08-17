@@ -86,7 +86,7 @@ const AdminChat = () => {
                   elevation={1}
                 >
                   <ListItemText
-                    primary={chatMsg.message}
+                    primary={`${chatMsg.sender}: ${chatMsg.message}`}
                     secondary={new Date(chatMsg.timestamp).toLocaleTimeString()}
                   />
                 </MessageBubble>

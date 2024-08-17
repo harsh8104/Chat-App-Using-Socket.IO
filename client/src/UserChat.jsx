@@ -82,7 +82,7 @@ const UserChat = () => {
               >
                 <MessageBubble isUser={chatMsg.sender === "User"} elevation={1}>
                   <ListItemText
-                    primary={chatMsg.message}
+                    primary={`${chatMsg.sender}: ${chatMsg.message}`}
                     secondary={new Date(chatMsg.timestamp).toLocaleString()}
                   />
                 </MessageBubble>
