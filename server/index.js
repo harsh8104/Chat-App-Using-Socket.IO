@@ -10,7 +10,7 @@ app.use(cors());
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // Adjust this to match your client port
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -19,9 +19,9 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log("User Connected:", socket.id);
 
-  socket.on("send-message", ({ message, sender }) => {
+  socket.on("send-message", ({ message, sender, timestamp }) => {
     console.log(`Message from ${sender}: ${message}`);
-    io.emit("receive-message", { message, sender });
+    io.emit("receive-message", { message, sender, timestamp });
   });
 
   socket.on("disconnect", () => {
